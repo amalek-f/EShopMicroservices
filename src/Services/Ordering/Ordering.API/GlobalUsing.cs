@@ -1,0 +1,11 @@
+﻿global using Carter;
+global using Mapster;
+global using MediatR;
+global using Ordering.Application.Dtos;
+global using Ordering.Application.Features.Commands.CreateOrder;
+global using Ordering.Application.Features.Commands.UpdateOrder;
+global using Ordering.Application.Features.Commands.DeleteOrder;
+global using Ordering.Application.Features.Queries;
+global using Ordering.Application.Features.Queries.GetOrdersByCustomer;
+global using BuildingBlocks.Pagination;
+global using Ordering.Application.Features.Queries.GetOrders;

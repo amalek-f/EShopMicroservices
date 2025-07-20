@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>82b2e9e8-08b6-49d1-9b56-4e75d3c74521</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Dockerfile.old" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0" />
+	  <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+	  <PackageReference Include="Carter" Version="9.0.0" />
+	  <PackageReference Include="Marten" Version="7.40.5" />
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
+  </ItemGroup>
+
+</Project>
