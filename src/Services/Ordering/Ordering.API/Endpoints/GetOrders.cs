@@ -6,7 +6,7 @@
 
 //public record GetOrdersRequest(PaginationRequest PaginationRequest);
 
-public record GetOrdersResponse(PaginatedRsult<OrderDto> Orders);
+public record GetOrdersResponse(PaginatedResult<OrderDto> Orders);
 
 public class GetOrders : ICarterModule
 {

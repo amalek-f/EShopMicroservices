@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AspnetRunBasics</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome 6 -->
+    @* <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" integrity="sha512-bxX+aKh0K/O8c9vI6XoV5Y5SB7c4Dmm1yTRV0USqfTql4NkZaXYrU9NOenBa5gS6BlM9E6GfpGJx5Bqzv3H8xg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> *@
+    <script src="https://kit.fontawesome.com/febe6ef108.js" crossorigin="anonymous"></script>
+    <!-- Fonts and Custom CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" />
+    @* <link href="~/css/style.css" rel="stylesheet" /> *@
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md bg-primary navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">AspnetRunBasics</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarsExampleDefault">
+                    <ul class="navbar-nav m-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-page="/Index">
+                                Home <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Product">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Order">Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Contact">Contact</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex align-items-center gap-2">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Search..." aria-label="Search">
+                            <button type="submit" class="btn btn-secondary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a class="btn btn-success btn-sm position-relative" asp-area="" asp-page="/Cart">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+                                3
+                                <span class="visually-hidden">items in cart</span>
+                            </span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" style="padding-top: 100px;">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light mt-5 pt-4 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+                    <h5>About</h5>
+                    <hr class="bg-white mt-0 mb-2 d-inline-block mx-auto w-25">
+                    <p class="mb-0">
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h5>Informations</h5>
+                    <hr class="bg-white mt-0 mb-2 d-inline-block mx-auto w-25">
+                    <ul class="list-unstyled">
+                        <li><a class="text-light text-decoration-none" href="#">Link 1</a></li>
+                        <li><a class="text-light text-decoration-none" href="#">Link 2</a></li>
+                        <li><a class="text-light text-decoration-none" href="#">Link 3</a></li>
+                        <li><a class="text-light text-decoration-none" href="#">Link 4</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h5>Other Links</h5>
+                    <hr class="bg-white mt-0 mb-2 d-inline-block mx-auto w-25">
+                    <ul class="list-unstyled">
+                        <li><a class="text-light text-decoration-none" href="#">Link 1</a></li>
+                        <li><a class="text-light text-decoration-none" href="#">Link 2</a></li>
+                        <li><a class="text-light text-decoration-none" href="#">Link 3</a></li>
+                        <li><a class="text-light text-decoration-none" href="#">Link 4</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mb-4">
+                    <h5>Contact</h5>
+                    <hr class="bg-white mt-0 mb-2 d-inline-block mx-auto w-25">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-house me-2"></i> My company</li>
+                        <li><i class="fas fa-envelope me-2"></i> email@example.com</li>
+                        <li><i class="fas fa-phone me-2"></i> + 33 12 14 15 16</li>
+                        <li><i class="fas fa-print me-2"></i> + 33 12 14 15 16</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 text-start">
+                    <a href="#" class="text-light text-decoration-none">Back to top</a>
+                </div>
+                <div class="col-6 text-end opacity-50">
+                    created with <i class="fas fa-heart text-danger"></i> by
+                    <a href="https://bootswatch.com/brite/"><i>brite</i></a> | <span>v. 1.0</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Quantity increment/decrement
+        document.addEventListener("DOMContentLoaded", function () {
+            const quantityInput = document.getElementById('quantity');
+            if (!quantityInput) return;
+
+            document.querySelector('.quantity-right-plus')?.addEventListener('click', function (e) {
+                e.preventDefault();
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+
+            document.querySelector('.quantity-left-minus')?.addEventListener('click', function (e) {
+                e.preventDefault();
+                const qty = parseInt(quantityInput.value);
+                if (qty > 1) quantityInput.value = qty - 1;
+            });
+        });
+
+        // Bootstrap form validation
+        (() => {
+            'use strict';
+            window.addEventListener('load', () => {
+                const forms = document.querySelectorAll('.needs-validation');
+                forms.forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            });
+        })();
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

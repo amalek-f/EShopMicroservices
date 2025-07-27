@@ -5,18 +5,16 @@ using System.Reflection;
 
 namespace BuildingBlocks.Messaging.MassTransit;
 
-public static class Extensions
+public static class Extentions
 {
-    public static IServiceCollection AddMessageBroker(
-        this IServiceCollection services, 
-        IConfiguration configuration,
-        Assembly? assembly = null)
+    public static IServiceCollection AddMessageBroker
+        (this IServiceCollection services, IConfiguration configuration, Assembly? assembly = null)
     {
-        // Implement RabitMQ MassTransit configuration.
         services.AddMassTransit(config =>
         {
             config.SetKebabCaseEndpointNameFormatter();
-            if (assembly == null)
+
+            if (assembly != null)
                 config.AddConsumers(assembly);
 
             config.UsingRabbitMq((context, configurator) =>
@@ -29,6 +27,7 @@ public static class Extensions
                 configurator.ConfigureEndpoints(context);
             });
         });
+
         return services;
     }
 }

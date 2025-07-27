@@ -14,7 +14,7 @@ public class CatalogInitialData : IInitialData
         // Preconfigured data
         // Marten UPSERT will carter for existing recors
         session.Store(GetPreconfiguredProducts());
-        
+
         return session.SaveChangesAsync(cancellationToken);
     }
 
@@ -22,69 +22,69 @@ public class CatalogInitialData : IInitialData
     {
         return
         [
-            new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = "iPhone X",
-                Description = "This is an iPhone X.",
-                Price = 1999.00M,
-                Category = ["c1", "c2" ],
-                ImageFile = "Iphone-x.png"
-            },
-            new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = "iPhone 16",
-                Description = "This is an iPhone 16.",
-                Price = 2999.00M,
-                Category = ["c1", "c3"],
-                ImageFile = "iPhone-16.png"
-            },
-            new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = "iPhone 13 Pro Max",
-                Description = "This is an iPhone 13 Pro Max.",
-                Price = 3999.00M,
-                Category = ["c2", "c3"],
-                ImageFile = "iPhone-13-ProMax.png"
-            },
-            new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = "iPad 4",
-                Description = "This is an iPad 4.",
-                Price = 4999.00M,
-                Category = ["c1", "c2", "c3"],
-                ImageFile = "iPad-4.png"
-            },
-            new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = "Mac book",
-                Description = "This is a Mac book.",
-                Price = 5999.00M,
-                Category = ["c1", "c2"],
-                ImageFile = "Mac-book.png"
-            },
-            new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = "iPad 3",
-                Description = "This is an iPad 3.",
-                Price = 4999.00M,
-                Category = ["c1", "c2", "c3"],
-                ImageFile = "iPad-3.png"
-            },
-            new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = "iPhone 12",
-                Description = "This is an iPhone 12.",
-                Price = 5999.00M,
-                Category = ["c1", "c2"],
-                ImageFile = "iPhone-12.png"
-            }
+            new Product()
+                {
+                    Id = new Guid("5334c996-8457-4cf0-815c-ed2b77c4ff61"),
+                    Name = "IPhone X",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    ImageFile = "product-1.png",
+                    Price = 950.00M,
+                    Category = new List<string> { "Smart Phone" }
+                },
+            new Product()
+                {
+                    Id = new Guid("c67d6323-e8b1-4bdf-9a75-b0d0d2e7e914"),
+                    Name = "Samsung 10",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    ImageFile = "product-2.png",
+                    Price = 840.00M,
+                    Category = new List<string> { "Smart Phone" }
+                },
+            new Product()
+                {
+                    Id = new Guid("4f136e9f-ff8c-4c1f-9a33-d12f689bdab8"),
+                    Name = "Huawei Plus",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    ImageFile = "product-3.png",
+                    Price = 650.00M,
+                    Category = new List<string> { "White Appliances" }
+                },
+            new Product()
+                {
+                    Id = new Guid("6ec1297b-ec0a-4aa1-be25-6726e3b51a27"),
+                    Name = "Xiaomi Mi 9",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    ImageFile = "product-4.png",
+                    Price = 470.00M,
+                    Category = new List<string> { "White Appliances" }
+                },
+            new Product()
+                {
+                    Id = new Guid("b786103d-c621-4f5a-b498-23452610f88c"),
+                    Name = "HTC U11+ Plus",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    ImageFile = "product-5.png",
+                    Price = 380.00M,
+                    Category = new List<string> { "Smart Phone" }
+                },
+            new Product()
+                {
+                    Id = new Guid("c4bbc4a2-4555-45d8-97cc-2a99b2167bff"),
+                    Name = "LG G7 ThinQ",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    ImageFile = "product-6.png",
+                    Price = 240.00M,
+                    Category = new List<string> { "Home Kitchen" }
+                },
+            new Product()
+                {
+                    Id = new Guid("93170c85-7795-489c-8e8f-7dcf3b4f4188"),
+                    Name = "Panasonic Lumix",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    ImageFile = "product-6.png",
+                    Price = 240.00M,
+                    Category = new List<string> { "Camera" }
+                }
         ];
     }
 }
