@@ -1,21 +1,61 @@
 ﻿@model ProductModel
 
-<div class="card">
-    <a asp-page="ProductDetail" asp-route-productId="@Model.Id"><img asp-append-version="true" class="card-img-top" src="~/images/product/@Model.ImageFile" alt=""></a>
-    <div class="card-body">
-        <h4 class="card-title"><a asp-page="ProductDetail" asp-route-productId="@Model.Id" class="color-main">@Model.Name</a></h4>
-        <p class="card-text">@Model.Description</p>
-        <div class="row">
-            <div class="col">
-                <p class="btn btn-danger btn-block">@Model.Price $</p>
-            </div>
-            <div class="col">
+<div class="card d-flex flex-column h-100 border-0 position-relative">
+    <!-- Product Image -->
+    <a asp-page="ProductDetail" asp-route-productId="@Model.Id" class="d-block overflow-hidden rounded-4 mb-3">
+        <img asp-append-version="true"
+             src="~/images/product/@(string.IsNullOrEmpty(Model.ImageFile) ? "placeholder.png" : Model.ImageFile)"
+             alt="@Model.Name"
+             class="img-fluid w-100 rounded-4 product-img"
+             loading="lazy"
+             style="height: auto; object-fit: contain;" />
+    </a>
 
-                @*<a asp-page="Cart" asp-route-productId="@Model.Id" class="btn btn-success btn-block">Add to Cart</a>*@
+    <!-- Product Info -->
+    <div class="d-flex flex-column flex-grow-1">
 
-                <form asp-page-handler="AddToCart" method="post" name="addToCartForm" id="add_cart_form">
-                    <a href="javascript:;" onclick="parentNode.submit();" class="btn btn-success btn-block">Add to Cart</a>
-                    <input type="hidden" asp-for="@Model.Id" name="productId" />
+        <!-- Product Name -->
+        <h6 class="fw-semibold text-dark mb-1 fs-6 lh-sm">
+            <a asp-page="ProductDetail"
+               asp-route-productId="@Model.Id"
+               class="text-decoration-none text-dark hover-text-primary"
+               title="@Model.Name">
+                @Model.Name
+            </a>
+        </h6>
+
+        <!-- Short Description -->
+        <p class="text-muted small mb-2 flex-grow-1" style="min-height: 38px;" title="@Model.Description">
+            @Model.Description
+        </p>
+
+        <!-- Price & Actions -->
+        <div class="d-flex justify-content-between align-items-center pt-2 mt-auto">
+
+            <!-- Price -->
+            <span class="fw-bold text-danger fs-6">@Model.Price.ToString("0.00") $</span>
+
+            <!-- Buttons -->
+            <div class="d-flex align-items-center gap-1">
+
+                <!-- Add to Cart -->
+                <form asp-page-handler="AddToCart" method="post" class="m-0" asp-antiforgery="true">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <button type="submit"
+                            class="btn btn-sm btn-dark text-white rounded-pill px-3 shadow-none"
+                            title="Add to Cart">
+                        <i class="fas fa-cart-plus me-1"></i> Add
+                    </button>
+                </form>
+
+                <!-- Wishlist -->
+                <form asp-page-handler="AddToWishlist" method="post" class="m-0" asp-antiforgery="true">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <button type="submit"
+                            class="btn btn-sm btn-light border-0 text-danger px-2 shadow-none"
+                            title="Add to Wishlist">
+                        <i class="fas fa-heart"></i>
+                    </button>
                 </form>
 
             </div>

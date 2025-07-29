@@ -2,15 +2,18 @@ using System.Net;
 
 namespace Shopping.Web.Pages;
 
-public class IndexModel(ICatalogService catalogService, IbasketService basketService, ILogger<IndexModel> logger) : PageModel
+public class IndexModel(ICatalogService catalogService, IBasketService basketService, ILogger<IndexModel> logger) : PageModel
 {
     public IEnumerable<ProductModel> ProductList { get; set; } = [];
+    public IEnumerable<ProductModel> TopProducts { get; set; } =[];
 
     public async Task<IActionResult> OnGetAsync()
     {
         logger.LogInformation("Index page visited");
 
         var result = await catalogService.GetProducts();
+
+        TopProducts = result.Products.Skip(8).ToList();
         //var result = await catalogService.GetProducts(2,3);
 
         ProductList = result.Products;

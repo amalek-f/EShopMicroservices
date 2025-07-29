@@ -1,0 +1,123 @@
+﻿@page
+@model Shopping.Web.Pages.ProductDetailModel
+@{
+    ViewData["Title"] = "Product Detail";
+}
+
+<div class="container-fluid px-lg-5 py-4">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light px-3 py-2 rounded-3 mb-4 border-0">
+            <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-page="ProductList">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detail</li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <!-- Product Image -->
+        <div class="col-12 col-lg-6">
+            <div class="bg-white rounded-4 shadow-sm p-4 text-center">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#productModal">
+                    <img class="img-fluid rounded-4 mb-3"
+                         src="~/images/product/@Model.Product.ImageFile.Replace("-", "x")"
+                         alt="@Model.Product.Name"
+                         style="object-fit: cover; max-height: 400px;" />
+                </a>
+                <h4 class="fw-semibold">@Model.Product.Name</h4>
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="col-12 col-lg-6">
+            <div class="bg-white rounded-4 shadow-sm p-4">
+                <div class="mb-3">
+                    <span class="fs-2 fw-bold text-danger">@Model.Product.Price $</span><br />
+                    <small class="text-muted text-decoration-line-through">@((Model.Product.Price + 120).ToString("0.00")) $</small>
+                </div>
+
+                <form asp-page-handler="AddToCart" method="post" id="add_cart_form">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Color</label>
+                        <select asp-for="Color" class="form-select rounded-pill">
+                            <option selected>Black</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Red">Red</option>
+                            <option value="Green">Green</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Quantity</label>
+                        <div class="input-group">
+                            <button type="button" class="btn btn-secondary" data-type="minus"><i class="fa fa-minus"></i></button>
+                            <input asp-for="Quantity" type="text" class="form-control text-center" value="1" min="1" max="100" />
+                            <button type="button" class="btn btn-secondary" data-type="plus"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <input type="hidden" asp-for="@Model.Product.Id" name="productId" />
+
+                    <button type="submit" class="btn btn-dark btn-lg w-100 rounded-pill fw-semibold text-uppercase">
+                        <i class="fa fa-shopping-cart me-2"></i> Add To Cart
+                    </button>
+                </form>
+
+                <!-- Trust Badges -->
+                <div class="text-center text-muted small mt-4">
+                    <div class="row">
+                        <div class="col"><i class="fa fa-truck fa-lg mb-1"></i><br />Fast Delivery</div>
+                        <div class="col"><i class="fa fa-credit-card fa-lg mb-1"></i><br />Secure Payment</div>
+                        <div class="col"><i class="fa fa-headset fa-lg mb-1"></i><br />Support: +33 1 22 54 65 60</div>
+                    </div>
+                </div>
+
+                <!-- Reviews -->
+                <div class="bg-light rounded-3 p-3 mt-4">
+                    <strong>3 reviews</strong>
+                    <span class="text-warning ms-2">
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i><i class="fa fa-star text-secondary"></i>
+                        (4/5)
+                    </span>
+                    <a href="#reviews" class="float-end small text-decoration-none">View all reviews</a>
+                </div>
+
+                <!-- Datasheet -->
+                <div class="bg-dark text-white text-center p-3 mt-3 rounded-3">
+                    <a href="#" class="text-white text-decoration-none fw-semibold">
+                        <i class="fa fa-file-text me-2"></i>Download Datasheet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Description -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="bg-white shadow-sm rounded-4">
+                <div class="p-3 border-bottom fw-semibold text-uppercase text-dark">
+                    <i class="fa fa-align-justify me-2"></i> Description
+                </div>
+                <div class="p-4">
+                    <p>@Model.Product.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0">
+            <div class="modal-body p-0">
+                <img src="~/images/product/@Model.Product.ImageFile.Replace("-", "x")"
+                     class="img-fluid w-100 rounded"
+                     alt="@Model.Product.Name" />
+            </div>
+        </div>
+    </div>
+</div>

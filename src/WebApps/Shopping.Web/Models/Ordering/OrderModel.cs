@@ -10,9 +10,12 @@ public record OrderModel(
     OrderStatus Status,
     List<OrderItemModel> OrderItems);
 
-public record AddressModel(string FirstName, string LastName, string EmailAdress, string AddressLine, string Country, string State, string ZipCode);
-public record PaymentModel();
-public record OrderItemModel(string CardName, string CardNumber, string Expiration, string Cvv, int PaymentMethod);
+public record OrderItemModel(Guid OrderId, Guid ProductId, int Quantity, decimal Price);
+
+public record AddressModel(string FirstName, string LastName, string EmailAddress, string AddressLine, string Country, string State, string ZipCode);
+
+public record PaymentModel(string CardName, string CardNumber, string Expiration, string Cvv, int PaymentMethod);
+
 public enum OrderStatus
 {
     Draft = 1,

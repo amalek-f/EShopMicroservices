@@ -1,60 +1,113 @@
-/*
-** Style Simple Ecommerce Theme for Bootstrap 4
-** Created by T-PHP https://t-php.fr/43-theme-ecommerce-bootstrap-4.html
-*/
-.bloc_left_price {
-    color: #c01508;
-    text-align: center;
-    font-weight: bold;
-    font-size: 150%;
+/* apple-style.css - Minimal Apple-style aesthetics */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    font-size: 16px;
+    line-height: 1.6;
 }
-.category_block li:hover {
-    background-color: #007bff;
+
+.navbar {
+    background-color: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
 }
-.category_block li:hover a {
-    color: #ffffff;
+
+    .navbar .nav-link {
+        color: #1d1d1f;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+    }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: #0071e3;
+        }
+
+.btn-outline-dark {
+    border-color: #1d1d1f;
+    color: #1d1d1f;
 }
-.category_block li a {
-    color: #343a40;
-}
-.add_to_cart_block .price {
-    color: #c01508;
-    text-align: center;
-    font-weight: bold;
-    font-size: 200%;
-    margin-bottom: 0;
-}
-.add_to_cart_block .price_discounted {
-    color: #343a40;
-    text-align: center;
-    text-decoration: line-through;
-    font-size: 140%;
-}
-.product_rassurance {
-    padding: 10px;
-    margin-top: 15px;
-    background: #ffffff;
-    border: 1px solid #6c757d;
-    color: #6c757d;
-}
-.product_rassurance .list-inline {
-    margin-bottom: 0;
-    text-transform: uppercase;
-    text-align: center;
-}
-.product_rassurance .list-inline li:hover {
-    color: #343a40;
-}
-.reviews_product .fa-star {
-    color: gold;
-}
-.pagination {
-    margin-top: 20px;
-}
+
+    .btn-outline-dark:hover {
+        background-color: #1d1d1f;
+        color: #fff;
+    }
+
 footer {
-    background: #343a40;
-    padding: 40px;
+    background-color: #fff;
+    color: #6e6e73;
+    border-top: 1px solid #e5e5e5;
+    font-size: 14px;
 }
-footer a {
-    color: #f8f9fa!important
+
+    footer a {
+        color: #6e6e73;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            color: #0071e3;
+            text-decoration: underline;
+        }
+
+.card.apple-style {
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
 }
+
+    .card.apple-style:hover {
+        transform: translateY(-5px);
+    }
+
+.btn-primary {
+    background-color: #0071e3;
+    border-color: #0071e3;
+}
+
+    .btn-primary:hover {
+        background-color: #005ecb;
+        border-color: #005ecb;
+    }
+
+.product-img {
+    object-fit: contain;
+    max-height: 200px;
+}
+
+.scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+.scroll-snap-item {
+    scroll-snap-align: start;
+}
+
+.product-image-hover {
+    transition: transform 0.3s ease;
+}
+
+    .product-image-hover:hover img {
+        transform: scale(1.03);
+    }
+
+.carousel-item img {
+    object-fit: fill !important;
+    height: 400px;
+}
+
+/* Add in site.css or your main theme */
+.product-img {
+    transition: transform 0.3s ease;
+}
+
+    .product-img:hover {
+        transform: scale(1.03);
+    }
